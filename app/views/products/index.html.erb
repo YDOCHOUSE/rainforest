@@ -1,6 +1,7 @@
 <h1>Rainforest</h1>
-<%= link_to 'New Product', new_product_path %>
+<%= link_to('New Product', new_product_path) %>
 
   <% @products.each do |product| %>
-  <%= product.name %>, <%= 	product.price_in_cents %>
-  <% end %>
+  <p><%= link_to product.name, product_path(product) %></p>
+  <p>Price: $<%= product.formatted_price %></p>
+  <%end%>
