@@ -1,5 +1,6 @@
 <h1>Rainforest</h1>
 
+
 <%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag "Search" %>
@@ -8,5 +9,5 @@
 <%= link_to('New Product', new_product_path) %>
 
 <div id="products">
-  <%= render @products %>
+  <%= render 'product' %>
 </div>

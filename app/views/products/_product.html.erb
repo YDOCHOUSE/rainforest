@@ -1,5 +1,16 @@
-
-  
-  <p><%= link_to product.name, product_path(product) %></p>
-  <p>Price: $<%= product.formatted_price %></p>
+<small><%= page_entries_info @products %></small>
  
+ <ul>
+  <% @products.each do |product| %>
+  <%= link_to product_path(product.id) do %>
+    <h2>
+      <%= product.formatted_price %>
+      <%= product.name %>
+    </h2>
+  <% end %>
+   <!-- keeps the description to 100 characters or less -->
+  <p><%= truncate(product.description, length: 100) %></p>
+<% end %>
+</ul>
+
+<%= paginate @products %>
