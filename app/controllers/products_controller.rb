@@ -2,22 +2,22 @@ class ProductsController < ApplicationController
   
 
   def index
-    @products = if params[:search]
-  
-      products = Product.all
+    if params[:search]           #if there is a search in the params hash
+      @products = Product.all    # query that and split it and display it
+
       params[:search].split.each do |word|
-        products = products.where("LOWER(name) LIKE LOWER(?)", "%#{word}%")
+        @products = @products.where("LOWER(name) LIKE LOWER(?)", "%#{word}%")
       end
 
-      products
-    else
+      @products = @products.page(params[:page])  #if there isn't display products
+    else                                          #via pagination
       @products = Product.order('products.created_at DESC').page(params[:page])
-end
-
-    respond_to do |format|
-      format.html
-      format.js
     end
+
+    respond_to do |format|   
+      format.html     # if format is html it looks for html.erb
+      format.js       #this will pull from index.js.erb, this is what  
+    end               #respond to does
   end
 
   def show
