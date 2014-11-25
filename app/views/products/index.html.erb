@@ -3,13 +3,14 @@
 
 <%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
   <%= text_field_tag :search, params[:search] %>
+  
   <%= submit_tag "Search" %>
 <% end %>
 
 <%= link_to('New Product', new_product_path) %>
 
 <div id="products">
-  <%= render 'product' %>
+  <%= render @products %>
 </div>
 
 <%= paginate @products %>

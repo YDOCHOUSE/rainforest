@@ -18,13 +18,13 @@ $(document).on('page:load ready', function() {
 
 //detects a scroll place close to the bottom grabs teh url
 //makes an ajax request for the url we grabbed and places the next page on and on
-  if ($('.pagination').length) {
-    $(window).scroll(function() {
-      var url = $('.pagination span.next').children().attr('href');
-      if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
-        $('.pagination').text("Fetching more products...");
-        return $.getScript(url);
-      }
-    });
-   }
+  // if ($('.pagination').length) {
+  //   $(window).scroll(function() {
+  //     var url = $('.pagination span.next').children().attr('href');
+  //     if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+  //       $('.pagination').text("Fetching more products...");
+  //       return $.getScript(url);
+  //     }
+  //   });
+  //  }
   });

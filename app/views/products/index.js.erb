@@ -1,7 +1,10 @@
+//This if conditional is saying if there is a search in params append them
+// if not replace the html 
+
 <% if params[:page] %>
-$('#products').append("<%= j(render @products) %>");
+$('#products').append("<%= j(render @products) %>"); 
 <% else %>
 $('#products').html("<%= j(render @products) %>");
 <% end %>
 
-$('#products-pagination').html("<%= j(paginate @products)%>")
+$('.pagination').replaceWith("<%= j(paginate @products)%>")

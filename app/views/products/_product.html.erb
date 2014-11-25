@@ -1,5 +1,4 @@
   <ul>
-  <% @products.each do |product| %>
   <%= link_to product_path(product.id) do %>
     <h2>
       <%= product.formatted_price %>
@@ -7,6 +6,5 @@
     </h2>
   <% end %>
   <p><%= truncate(product.description, length: 100) %></p>
-<% end %>
 </ul>
 
