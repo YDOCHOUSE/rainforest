@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     if params[:search]           #if there is a search in the params hash
-      @products = Product.all    # query that and split it and display it
+       @products = Product.all    # query that and split it and display it
 
       params[:search].split.each do |word|
         @products = @products.where("LOWER(name) LIKE LOWER(?)", "%#{word}%")
