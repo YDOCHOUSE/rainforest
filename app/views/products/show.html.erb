@@ -3,8 +3,9 @@
 <%= @product.description %>
 <%= @product.formatted_price %>
 
-
-<%= render "showreviews" %>
+<div id="review-list">
+  <%= render 'review' %>
+</div>
 <%= render "reviewform" %>
 
 
